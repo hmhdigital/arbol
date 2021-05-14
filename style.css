@@ -1,0 +1,19 @@
+/*!
+Theme Name: Árbol
+Theme URI: https://github.com/hmhdigial/arbol
+Author: Rashad Hawkins
+Author URI: http://hmh.digital
+Description: WprdPress theming with modern tooling
+Version: 0.5.0
+License: MIT
+License URI: LICENSE
+Text Domain: arbol
+Tags: starter-theme, gulp-4, post-css, webpack, tailwindcss, alipinejs, timber, twig, translation-ready
+
+This theme is licensed under the MIT. It has been designed with
+bespoke projects in mind with a few opinions, but essentially a blank canvas.
+Tooling is provided courtesy of Gulp, Webpack, and PostCSS for compiling assets.
+For styling and interactivity, TailwindCSS and AlpineJS are utilized.
+Under the hood Àrbol uses Timber and Twig for templating. Use this theme
+to make something cool, have fun, and share what you've learned with others.
+*/

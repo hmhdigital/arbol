@@ -1,0 +1,86 @@
+
+# ignore all files starting with . or ~
+.*
+~*
+
+# ignore build files and directories
+assets/*
+!assets/src
+node_modules/
+local.json
+
+# ignore OS generated files
+**.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+
+# ignore editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+*.env
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.map
+
+# ignore sass files
+**/.sass-cache
+**/.sass-cache/*
+**/.map
+
+# ignore composer files
+!assets/js/vendor/
+wpcs/
+/vendor/
+
+# ignore vim generated files
+*.un~
+
+# ignore compiled Files and Build Dirs
+/README.html
+
+# ignore phpStorm project files
+.idea/
+library/vendors/composer
+assets/img/.DS_Store
+
+# -------------------------
+# BEGIN Whitelisted Files
+# -------------------------
+
+# track these files, if they exist
+!.gitignore
+!.eslintignore
+!.eslint.js
+!.eslintrc.js
+!.editorconfig
+!README.md
+!CHANGELOG.md
+!composer.json
+!.gitkeep
+!.babelrc

@@ -1,0 +1,8 @@
+{
+    "name": "hmhdigital/arbol",
+    "type": "wordpress-theme",
+    "require": {
+        "timber/timber": "*"
+    },
+    "license": "MIT"
+}
