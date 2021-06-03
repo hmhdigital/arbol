@@ -1,5 +1,5 @@
 {
-    "name": "hmhdigital/arbol",
+    "name": "hmhdigital/besu",
     "type": "wordpress-theme",
     "require": {
         "timber/timber": "*"
