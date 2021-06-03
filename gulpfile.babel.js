@@ -15,7 +15,7 @@ import browserSync from 'browser-sync';
 import zip from 'gulp-zip';
 import info from './package.json';
 import replace from 'gulp-replace';
-import wpPot from 'gulp-wp-pot';
+// import wpPot from 'gulp-wp-pot';
 
 const PRODUCTION = yargs.argv.prod;
 const server = browserSync.create();
@@ -34,10 +34,10 @@ export const reload = done => {
 	done();
 };
 
-export const clean = () => del([ ]);
+export const clean = () => del([ 'assets/build' ]);
 
 export const styles = () => {
-	return src( 'assets/src/scss/main.scss' )
+	return src([ 'assets/src/scss/theme.scss', 'assets/src/scss/editor.scss' ])
 		.pipe( gulpif( ! PRODUCTION, sourcemaps.init() ) )
 		.pipe( sass().on( 'error', sass.logError ) )
 		.pipe( postcss([ tailwindcss( './tailwind.config.js' ) ]) )
@@ -51,16 +51,16 @@ export const styles = () => {
 export const images = () => {
 	return src( 'assets/src/img/**/*.{jpg,jpeg,png,svg,gif}' )
 		.pipe( gulpif( PRODUCTION, imagemin() ) )
-		.pipe( dest( 'assets/img' ) );
+		.pipe( dest( 'assets/build/img' ) );
 };
 
 export const copy = () => {
 	return src([ 'assets/src/**/*', '!assets/src/{img,js,scss}', '!assets/src/{img,js,scss}/**/*' ])
-		.pipe( dest( 'assets' ) );
+		.pipe( dest( 'assets/build' ) );
 };
 
 export const scripts = () => {
-	return src([ 'assets/src/js/app.js'])
+	return src([ 'assets/src/js/app.js', 'assets/src/js/custom/custom.js'])
 		.pipe( named() )
 		.pipe( webpack({
 			module: {
@@ -121,16 +121,16 @@ export const compress = () => {
 		.pipe( dest( 'bundled' ) );
 };
 
-export const pot = () => {
-	return src( '**/*.php' )
-		.pipe(
-			wpPot({
-				domain: 'besu',
-				package: info.name
-			})
-		)
-		.pipe( dest( `languages/${info.name}.pot` ) );
-};
+// export const pot = () => {
+// 	return src( '**/*.php' )
+// 		.pipe(
+// 			wpPot({
+// 				domain: 'besu',
+// 				package: info.name
+// 			})
+// 		)
+// 		.pipe( dest( `languages/${info.name}.pot` ) );
+// };
 
 export const watchForChanges = () => {
 	watch( 'assets/src/scss/**/*.scss', styles );
@@ -138,8 +138,9 @@ export const watchForChanges = () => {
 	watch([ 'assets/src/**/*', '!assets/src/{img,js,scss}', '!assets/src/{img,js,scss}/**/*' ], series( copy, reload ) );
 	watch( 'assets/src/js/**/*.js', series( scripts, reload ) );
 	watch( '**/*.php', reload );
+	watch( 'views/**/*.twig', reload );
 };
 
 export const dev = series( clean, parallel( styles, scripts, images, copy  ), serve, watchForChanges );
-export const build = series( clean, parallel( styles, scripts, images, copy ), pot, compress );
+export const build = series( clean, parallel( styles, scripts, images, copy ), compress );
 export default dev;
