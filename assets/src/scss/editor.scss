@@ -1,0 +1,12 @@
+/** Tailwind Components */
+@tailwind components;
+
+/** Custom Theme Components */
+@import './components';
+
+/** Editor Styles */
+@import './gutenberg';
+
+/** Tailwind Utilities */
+@tailwind utilities;
+
