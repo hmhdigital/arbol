@@ -63,15 +63,15 @@ Timber::$dirname = array( 'views' );
  /**
  * Enqueue scripts and styles.
  */
-function arbol_assets() {
+function besu_assets() {
 	// Loads required CSS header only.
-	wp_enqueue_style( 'arbol-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'besu-style', get_stylesheet_uri() );
 
 	// Loads bundled theme CSS.
-	wp_enqueue_style( 'arbol-theme-styles', get_template_directory_uri() . '/assets/build/css/main.css', array(), '0.5.0', 'all' );
+	wp_enqueue_style( 'besu-theme-styles', get_template_directory_uri() . '/assets/build/css/main.css', array(), '0.5.0', 'all' );
 
 	// Loads bundled theme JS.
-	wp_enqueue_script('arbol-custom-scripts', get_template_directory_uri() . '/assets/build/js/main.js', array('customize-preview'), '0.5.0', true );
+	wp_enqueue_script('besu-custom-scripts', get_template_directory_uri() . '/assets/build/js/main.js', array('customize-preview'), '0.5.0', true );
 
 	// Comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -79,4 +79,14 @@ function arbol_assets() {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'arbol_assets' );
+add_action( 'wp_enqueue_scripts', 'besu_assets' );
+
+/**
+ * Disable Editor on certain pages.
+ */
+require get_template_directory() . '/inc/disable-editor.php';
+
+/**
+ * ACF Add-ons.
+ */
+require get_template_directory() . '/inc/acf-blocks.php';
