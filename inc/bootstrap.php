@@ -5,7 +5,7 @@
  * @package Árbol
  */
 
-class bootstrapSite extends Timber\Site {
+class bootstrapTheme extends Timber\Site {
     public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
@@ -83,14 +83,56 @@ class bootstrapSite extends Timber\Site {
 			)
 		);
 
+		/*
+		 * Block Editor support.
+		 *
+		 * See: https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/
+		 */
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'assets/build/css/editor.css' );
+
+		// Custom Color Pallette
+		add_theme_support( 'editor-color-palette', array(
+			array(
+				'name'  => __( 'Blue', 'oneteam' ),
+				'slug'  => 'blue',
+				'color'	=> '#59BACC',
+			),
+			array(
+				'name'  => __( 'Green', 'oneteam' ),
+				'slug'  => 'green',
+				'color' => '#58AD69',
+			),
+			array(
+				'name'  => __( 'Orange', 'oneteam' ),
+				'slug'  => 'orange',
+				'color' => '#FFBC49',
+			),
+			array(
+				'name'	=> __( 'Red', 'oneteam' ),
+				'slug'	=> 'red',
+				'color'	=> '#E2574C',
+			),
+		) );
+
+		// -- Disable Custom Colors
+		add_theme_support( 'disable-custom-colors' );
+
+
+		/*
+		 * Wordpress custom menu support.
+		 *
+		 * See: https://developer.wordpress.org/reference/functions/add_theme_support/
+		 */
 		add_theme_support( 'menus' );
 	}
 
 	/** This is where you can register nav menus */
 	public function register_menus() {
 		register_nav_menus( array(
-			'header-menu' => esc_html__( 'Header', 'arbol' ),
-			'footer-menu' => esc_html__( 'Footer', 'arbol' )
+			'header-menu' => esc_html__( 'Header', 'besu' ),
+			'footer-menu' => esc_html__( 'Footer', 'besu' )
 		) );
 	}
 
@@ -136,4 +178,4 @@ class bootstrapSite extends Timber\Site {
 
 }
 
-new bootstrapSite();
+new bootstrapTheme();
