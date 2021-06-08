@@ -37,7 +37,7 @@ export const reload = done => {
 export const clean = () => del([ 'assets/build' ]);
 
 export const styles = () => {
-	return src([ 'assets/src/scss/theme.scss', 'assets/src/scss/editor.scss' ])
+	return src([ 'assets/src/scss/main.scss', 'assets/src/scss/editor.scss' ])
 		.pipe( gulpif( ! PRODUCTION, sourcemaps.init() ) )
 		.pipe( sass().on( 'error', sass.logError ) )
 		.pipe( postcss([ tailwindcss( './tailwind.config.js' ) ]) )
