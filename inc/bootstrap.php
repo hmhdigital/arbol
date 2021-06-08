@@ -1,18 +1,21 @@
 <?php
 /**
- * WordPress defaults and theme features
+ * Wordpress defaults and them features
  *
- * @package Árbol
+ * @package WordPress
+ * @subpackage Bēsu
+ * @version 0.5.0
+ * @since Bēsu 0.5.0
  */
 
 class bootstrapTheme extends Timber\Site {
     public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
+		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
-		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber_twig', array( $this, 'add_to_twig' ) );
 
         parent::__construct();
     }
@@ -95,22 +98,22 @@ class bootstrapTheme extends Timber\Site {
 		// Custom Color Pallette
 		add_theme_support( 'editor-color-palette', array(
 			array(
-				'name'  => __( 'Blue', 'oneteam' ),
+				'name'  => __( 'Blue', 'besu' ),
 				'slug'  => 'blue',
 				'color'	=> '#59BACC',
 			),
 			array(
-				'name'  => __( 'Green', 'oneteam' ),
+				'name'  => __( 'Green', 'besu' ),
 				'slug'  => 'green',
 				'color' => '#58AD69',
 			),
 			array(
-				'name'  => __( 'Orange', 'oneteam' ),
+				'name'  => __( 'Orange', 'besu' ),
 				'slug'  => 'orange',
 				'color' => '#FFBC49',
 			),
 			array(
-				'name'	=> __( 'Red', 'oneteam' ),
+				'name'	=> __( 'Red', 'besu' ),
 				'slug'	=> 'red',
 				'color'	=> '#E2574C',
 			),
@@ -126,12 +129,14 @@ class bootstrapTheme extends Timber\Site {
 		 * See: https://developer.wordpress.org/reference/functions/add_theme_support/
 		 */
 		add_theme_support( 'menus' );
+
 	}
 
 	/** This is where you can register nav menus */
 	public function register_menus() {
 		register_nav_menus( array(
 			'header-menu' => esc_html__( 'Header', 'besu' ),
+			'mobile-menu' => esc_html__( 'Mobile', 'besu' ),
 			'footer-menu' => esc_html__( 'Footer', 'besu' )
 		) );
 	}
@@ -151,8 +156,12 @@ class bootstrapTheme extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
+		$custom_logo = get_theme_mod('custom_logo');
+
 		$context['header']  = new Timber\Menu('header-menu');
+		$context['mobile']  = new Timber\Menu('mobile-menu');
 		$context['footer']  = new Timber\Menu('footer-menu');
+		$context['custom_logo'] = new Timber\Image($custom_logo);
 		$context['site']  = $this;
 		return $context;
 	}

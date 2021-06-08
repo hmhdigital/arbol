@@ -14,7 +14,7 @@
 function besu_disable_editor( $id = false ) {
 
 	$excluded_templates = array(
-
+		'templates/landing.php'
 	);
 
 	$excluded_ids = array(

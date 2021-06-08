@@ -10,15 +10,15 @@
  *
  * Methods for TimberHelper can be found in the /lib plugin sub-directory
  * @package WordPress
- * @subpackage Árbol
+ * @subpackage Bēsu
  * @version 0.5.0
- * @since Árbol 0.5.0
+ * @since Bēsu 0.5.0
  */
 
 $context = Timber::context();
 $context['posts'] = Timber::get_posts();
-$templates = array( 'pages/index.twig' );
+$templates = array( 'index.twig' );
 if ( is_front_page() ) {
-	array_unshift( $templates, 'pages/front-page.twig' );
+	array_unshift( $templates, 'landing.twig' );
 }
 Timber::render( $templates, $context );
