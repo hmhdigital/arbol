@@ -1,13 +1,13 @@
 <?php
 /**
- * Árbol functions and definitions
+ * Bēsu functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package WordPress
- * @subpackage Árbol
+ * @subpackage Bēsu
  * @version 0.5.0
- * @since Árbol 0.5.0
+ * @since Bēsu 0.5.0
  */
 
  /**
@@ -46,7 +46,7 @@ if ( ! class_exists( 'Timber' ) ) {
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
-Timber::$dirname = array( 'views' );
+Timber::$dirname = array( 'views/', 'views/layouts', 'views/pages', 'views/partials', 'views/blocks', 'views/modules' );
 
  /**
  * Theme defaults and WordPress features.
