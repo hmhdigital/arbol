@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Bēsu
- * @version 0.5.0
+ * @version 0.8.0
  * @since Bēsu 0.5.0
  */
 
@@ -93,7 +93,7 @@ class bootstrapTheme extends Timber\Site {
 		 */
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'assets/build/css/editor.css' );
+		add_editor_style( 'assets/css/editor.css' );
 
 		// Custom Color Pallette
 		add_theme_support( 'editor-color-palette', array(

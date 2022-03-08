@@ -1,6 +1,6 @@
 {
 	"name": "besu",
-	"version": "0.5.0",
+	"version": "0.8.0",
 	"description": "A WordPress starter theme for bespoke projects",
 	"repository": {
 		"type": "git",
@@ -9,34 +9,22 @@
 	"author": "Rashad Hawkins",
 	"license": "MIT",
 	"devDependencies": {
-		"@babel/core": "^7.14.3",
-		"@babel/preset-env": "^7.14.4",
-		"@babel/register": "^7.13.16",
-		"@tailwindcss/forms": "^0.3.3",
-		"alpinejs": "^2.8.2",
-		"autoprefixer": "^10.2.6",
-		"babel-loader": "^8.2.2",
-		"browser-sync": "^2.26.14",
-		"cross-env": "^7.0.3",
-		"del": "^6.0.0",
-		"gulp": "^4.0.2",
-		"gulp-clean-css": "^4.3.0",
-		"gulp-if": "^3.0.0",
-		"gulp-imagemin": "^7.1.0",
-		"gulp-postcss": "^9.0.0",
-		"gulp-replace": "^1.1.3",
-		"gulp-sass": "^4.1.0",
-		"gulp-sourcemaps": "^3.0.0",
-		"gulp-wp-pot": "^2.5.0",
-		"gulp-zip": "^5.1.0",
-		"postcss": "^8.3.0",
-		"tailwindcss": "^2.1.4",
-		"vinyl-named": "^1.1.0",
-		"webpack-stream": "^6.1.2",
-		"yargs": "^17.0.1"
+		"@tailwindcss/forms": "^0.5.0",
+		"alpinejs": "^3.9.1",
+		"browser-sync": "^2.27.7",
+		"browser-sync-webpack-plugin": "^2.3.0",
+		"dir-archiver": "^1.2.0",
+		"laravel-mix": "^6.0.43",
+		"mix-tailwindcss": "^1.3.0",
+		"resolve-url-loader": "^5.0.0",
+		"sass": "^1.49.9",
+		"sass-loader": "^12.6.0",
+		"tailwindcss": "^3.0.23"
 	},
 	"scripts": {
-		"dev": "gulp",
-		"prod": "cross-env NODE_ENV=production gulp build --prod"
+		"dev": "npx mix",
+		"watch": "npx mix watch",
+		"prod": "npx mix --production",
+    "bundle": "dir-archiver --src . --dest ../besu.zip --exclude .DS_Store .editorconfig .eslintignore .eslintrc.js tailwind.config.js webpack.mix.js .git .gitattributes .github .gitignore README.md local.example.json local.json composer.json composer.lock node_modules src package-lock.json package.json phpcs.xml.dist"
 	}
 }

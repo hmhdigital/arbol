@@ -4,8 +4,7 @@
 ~*
 
 # ignore build files and directories
-assets/*
-!assets/src
+/assets/
 node_modules/
 local.json
 
@@ -54,7 +53,6 @@ Thumbs.db
 **/.map
 
 # ignore composer files
-!assets/js/vendor/
 wpcs/
 /vendor/
 

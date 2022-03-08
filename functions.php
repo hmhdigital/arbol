@@ -6,7 +6,7 @@
  *
  * @package WordPress
  * @subpackage Bēsu
- * @version 0.5.0
+ * @version 0.8.0
  * @since Bēsu 0.5.0
  */
 
@@ -68,10 +68,10 @@ function besu_assets() {
 	wp_enqueue_style( 'besu-style', get_stylesheet_uri() );
 
 	// Loads bundled theme CSS.
-	wp_enqueue_style( 'besu-theme-styles', get_template_directory_uri() . '/assets/build/css/main.css', array(), '0.5.0', 'all' );
+	wp_enqueue_style( 'besu-theme-styles', get_template_directory_uri() . '/assets/css/main.css', array(), '0.8.0', 'all' );
 
 	// Loads bundled theme JS.
-	wp_enqueue_script('besu-custom-scripts', get_template_directory_uri() . '/assets/build/js/main.js', array('customize-preview'), '0.5.0', true );
+	wp_enqueue_script('besu-custom-scripts', get_template_directory_uri() . '/assets/js/main.js', array('customize-preview'), '0.8.0', true );
 
 	// Comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
