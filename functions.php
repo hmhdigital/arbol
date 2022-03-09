@@ -37,7 +37,7 @@ if ( ! class_exists( 'Timber' ) ) {
 	add_filter(
 		'template_include',
 		function( $template ) {
-			return get_stylesheet_directory() . 'assets/build/no-timber.html';
+			return get_stylesheet_directory() . '/views/static/no-timber.html';
 		}
 	);
 	return;
@@ -71,7 +71,7 @@ function besu_assets() {
 	wp_enqueue_style( 'besu-theme-styles', get_template_directory_uri() . '/assets/css/main.css', array(), '0.8.0', 'all' );
 
 	// Loads bundled theme JS.
-	wp_enqueue_script('besu-custom-scripts', get_template_directory_uri() . '/assets/js/main.js', array('customize-preview'), '0.8.0', true );
+	wp_enqueue_script('besu-custom-scripts', get_template_directory_uri() . '/assets/js/app.js', array('customize-preview'), '0.8.0', true );
 
 	// Comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
