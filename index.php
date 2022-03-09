@@ -18,7 +18,11 @@
 $context = Timber::context();
 $context['posts'] = Timber::get_posts();
 $templates = array( 'index.twig' );
-if ( is_front_page() ) {
-	array_unshift( $templates, 'landing.twig' );
+
+if ( is_home() ) {
+	$img = wp_get_attachment_image_src(get_post_thumbnail_id( $posts_page ), 'full' );
+    $featured_image = $img[0];
+	array_unshift( $templates, 'home.twig' );
 }
+
 Timber::render( $templates, $context );

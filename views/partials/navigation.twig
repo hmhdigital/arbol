@@ -1,0 +1,18 @@
+{% if primary_menu %}
+	<ul>
+	{% for item in primary_menu.items %}
+		<li class=" {{ item.classes | join(' ') }}">
+			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+			{% if item.get_children %}
+				<ul class="p">
+				{% for child in item.get_children %}
+					<li class="">
+						<a class="nav-link" href="{{child.get_link}}">{{child.title}}</a>
+					</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}

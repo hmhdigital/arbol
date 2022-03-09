@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Full Screen Canvas
- * Description: A full Screen layout with no header or footer.
+ * The Front page template file. When this is present the index
+ * and home twig templates are ignored, and modular.twig is displayed.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -13,6 +13,6 @@
  */
 
 $context = Timber::context();
-$timber_post     = Timber::get_post();
-$context['post'] = $timber_post;
-Timber::render( 'canvas.twig', $context );
+$context['post'] = new Timber\Post();
+
+Timber::render( 'modular.twig', $context );
