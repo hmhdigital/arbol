@@ -135,9 +135,9 @@ class bootstrapTheme extends Timber\Site {
 	/** This is where you can register nav menus */
 	public function register_menus() {
 		register_nav_menus( array(
-			'header-menu' => esc_html__( 'Header', 'besu' ),
-			'mobile-menu' => esc_html__( 'Mobile', 'besu' ),
-			'footer-menu' => esc_html__( 'Footer', 'besu' )
+			'primary_nav' => esc_html__( 'Primary Navigation', 'besu' ),
+			'mobile_nav' => esc_html__( 'Mobile Navigation', 'besu' ),
+			'secondary_nav' => esc_html__( 'Secondary Navigation', 'besu' )
 		) );
 	}
 
@@ -158,9 +158,9 @@ class bootstrapTheme extends Timber\Site {
 	public function add_to_context( $context ) {
 		$custom_logo = get_theme_mod('custom_logo');
 
-		$context['header']  = new Timber\Menu('header-menu');
-		$context['mobile']  = new Timber\Menu('mobile-menu');
-		$context['footer']  = new Timber\Menu('footer-menu');
+		$context['primary_menu']  = new Timber\Menu('primary_nav');
+		$context['mobile_menu']  = new Timber\Menu('mobile_nav');
+		$context['secondary_menu']  = new Timber\Menu('secondary_nav');
 		$context['custom_logo'] = new Timber\Image($custom_logo);
 		$context['site']  = $this;
 		return $context;
