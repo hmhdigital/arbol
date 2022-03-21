@@ -9,15 +9,15 @@
 	<body class="{{body_class}}" data-template="base.twig">
 	{# <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a> #}
 
-		<header class="">
+		<header class="p-4 h-16">
 			{% block header %}
-				<div class="">
+				<div class="flex">
 					{% include "partials/header.twig" %}
 				</div>
 			{% endblock %}
 		</header>
 
-		<main id="" role="main" class="">
+		<main id="" role="main" class="h-full">
 			{% if title %}<h1>{{title}}</h1>{% endif %}
 			<div class=" {{sidebar_class}}">
 				{% block content %}

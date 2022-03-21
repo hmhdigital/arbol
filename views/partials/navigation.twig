@@ -1,5 +1,5 @@
 {% if primary_menu %}
-	<ul>
+	<ul class="flex">
 	{% for item in primary_menu.items %}
 		<li class=" {{ item.classes | join(' ') }}">
 			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>

@@ -2,11 +2,13 @@
 	{% include "partials/custom-logo.twig" %}
 
 	{% else %}
-		<h1 class="" role="banner">
+		<div class="h-4">
+			<h1 class="" role="banner">
 			<a class="" href="{{site.url}}" rel="home">{{site.name}}</a>
 		</h1>
+		</div>
 {% endif %}
 
-<nav id="" class="" role="navigation">
+<nav id="" class="flex" role="navigation">
 	{% include "partials/navigation.twig" %}
 </nav><!-- #nav -->
