@@ -1,0 +1,7 @@
+[x-cloak] {
+	@apply invisible
+}
+
+body {
+    @apply relative font-sans-serif
+}
