@@ -2,6 +2,7 @@
 	"name": "besu",
 	"version": "0.8.0",
 	"description": "A WordPress starter theme for bespoke projects",
+  "type": "module",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/hmhdigital/besu"
@@ -9,22 +10,26 @@
 	"author": "Rashad Hawkins",
 	"license": "MIT",
 	"devDependencies": {
-		"@tailwindcss/forms": "^0.5.0",
-		"alpinejs": "^3.9.1",
-		"browser-sync": "^2.27.7",
-		"browser-sync-webpack-plugin": "^2.3.0",
-		"dir-archiver": "^1.2.0",
-		"laravel-mix": "^6.0.43",
-		"mix-tailwindcss": "^1.3.0",
-		"resolve-url-loader": "^5.0.0",
-		"sass": "^1.49.9",
-		"sass-loader": "^12.6.0",
-		"tailwindcss": "^3.0.23"
+		"@tailwindcss/forms": "^0.5.6",
+		"@wordpress/scripts": "^26.16.0",
+		"alpinejs": "^3.13.2",
+		"autoprefixer": "^10.4.16",
+		"browser-sync": "^2.29.3",
+		"dir-archiver": "^2.1.0",
+		"glob": "^10.3.10",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.31",
+		"postcss-cli": "^10.1.0",
+		"postcss-import": "^15.1.0",
+		"prettier-plugin-tailwindcss": "^0.5.6",
+		"tailwindcss": "^3.3.5",
+		"webpack-cli": "^5.1.4"
 	},
 	"scripts": {
-		"dev": "npx mix",
-		"watch": "npx mix watch",
-		"prod": "npx mix --production",
-    "bundle": "dir-archiver --src . --dest ../besu.zip --exclude .DS_Store .editorconfig .eslintignore .eslintrc.js tailwind.config.js webpack.mix.js .git .gitattributes .github .gitignore README.md local.example.json local.json composer.json composer.lock node_modules src package-lock.json package.json phpcs.xml.dist"
+		"bundle": "dir-archiver --src . --dest ../besu.zip --exclude .DS_Store .editorconfig .eslintignore .eslintrc.js tailwind.config.js postcss.config.js prettier.config.js .git .gitattributes .github .gitignore README.md local.example.json local.json composer.json composer.lock node_modules src package-lock.json package.json phpcs.xml.dist",
+		"compile": "wp-scripts start src/js/index.js ",
+		"build": "wp-scripts build src/js/index.js ",
+		"develop": "npm-run-all --parallel compile sync",
+		"sync": "browser-sync start --proxy 'besu.local' --browser 'google chrome' --files 'build/*', '**/*.php', '**/*.twig'"
 	}
 }
