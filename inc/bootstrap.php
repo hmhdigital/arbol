@@ -93,34 +93,7 @@ class bootstrapTheme extends Timber\Site {
 		 */
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'assets/css/editor.css' );
-
-		// Custom Color Pallette
-		add_theme_support( 'editor-color-palette', array(
-			array(
-				'name'  => __( 'Blue', 'besu' ),
-				'slug'  => 'blue',
-				'color'	=> '#59BACC',
-			),
-			array(
-				'name'  => __( 'Green', 'besu' ),
-				'slug'  => 'green',
-				'color' => '#58AD69',
-			),
-			array(
-				'name'  => __( 'Orange', 'besu' ),
-				'slug'  => 'orange',
-				'color' => '#FFBC49',
-			),
-			array(
-				'name'	=> __( 'Red', 'besu' ),
-				'slug'	=> 'red',
-				'color'	=> '#E2574C',
-			),
-		) );
-
-		// -- Disable Custom Colors
-		add_theme_support( 'disable-custom-colors' );
+		add_editor_style( 'build/index.css' );
 
 
 		/*
