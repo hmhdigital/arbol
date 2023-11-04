@@ -4,7 +4,7 @@
 ~*
 
 # ignore build files and directories
-/assets/
+/build/
 node_modules/
 local.json
 
@@ -46,11 +46,6 @@ Thumbs.db
 *.zip
 *.tgz
 *.map
-
-# ignore sass files
-**/.sass-cache
-**/.sass-cache/*
-**/.map
 
 # ignore composer files
 wpcs/
