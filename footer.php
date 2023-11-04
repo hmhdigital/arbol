@@ -10,7 +10,7 @@
  *
  * @package  WordPress
  * @subpackage Bēsu
- * @since    0.8.0
+ * @since    0.9.0
  */
 
 $timberContext = $GLOBALS['timberContext']; // @codingStandardsIgnoreFile

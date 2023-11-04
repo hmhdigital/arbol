@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Bēsu
- * @version 0.8.0
+ * @version 0.9.0
  * @since Bēsu 0.5.0
  */
 
