@@ -4,5 +4,10 @@
     "require": {
         "timber/timber": "*"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
 }

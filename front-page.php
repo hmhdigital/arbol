@@ -13,6 +13,6 @@
  */
 
 $context = Timber::context();
-$context['post'] = new Timber\Post();
+$context['posts'] = Timber::get_posts();
 
-Timber::render( 'modular.twig', $context );
+Timber::render( 'front-page.twig', $context );

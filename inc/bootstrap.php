@@ -7,17 +7,20 @@
  * @version 0.9.0
  * @since Bēsu 0.5.0
  */
-
-class bootstrapTheme extends Timber\Site {
+use Timber\Site;
+class bootstrapTheme extends Site {
     public function __construct() {
+
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
-		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 
-        parent::__construct();
+		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
+		add_filter( 'timber/twig/environment/options', [ $this, 'update_twig_environment_options' ] );
+
+		parent::__construct();
     }
 
 	public function theme_supports() {
@@ -108,9 +111,9 @@ class bootstrapTheme extends Timber\Site {
 	/** This is where you can register nav menus */
 	public function register_menus() {
 		register_nav_menus( array(
-			'primary_nav' => esc_html__( 'Primary Navigation', 'besu' ),
+			'header_nav' => esc_html__( 'Header Navigation', 'besu' ),
 			'mobile_nav' => esc_html__( 'Mobile Navigation', 'besu' ),
-			'secondary_nav' => esc_html__( 'Secondary Navigation', 'besu' )
+			'footer_nav' => esc_html__( 'Footer Navigation', 'besu' )
 		) );
 	}
 
@@ -131,33 +134,37 @@ class bootstrapTheme extends Timber\Site {
 	public function add_to_context( $context ) {
 		$custom_logo = get_theme_mod('custom_logo');
 
-		$context['primary_menu']  = new Timber\Menu('primary_nav');
-		$context['mobile_menu']  = new Timber\Menu('mobile_nav');
-		$context['secondary_menu']  = new Timber\Menu('secondary_nav');
-		$context['custom_logo'] = new Timber\Image($custom_logo);
+		$context['header_menu'] = Timber::get_menu('header_nav');
+		$context['mobile_menu'] = Timber::get_menu('mobile_nav');
+		$context['footer_menu'] = Timber::get_menu('footer_nav');
+		$context['custom_logo'] = Timber::get_image($custom_logo);
 		$context['site']  = $this;
 		return $context;
 	}
-
-	/** This Would return 'foo bar!'.
-	 *
-	 * @param string $text being 'foo', then returned 'foo bar!'.
-	 */
-	// public function myfoo( $text ) {
-	// 	$text .= ' bar!';
-	// 	return $text;
-	// }
 
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param string $twig get extension.
 	 */
-	// public function add_to_twig( $twig ) {
-	// 	$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-	// 	$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
-	// 	return $twig;
-	// }
+	public function add_to_twig( $twig ) {
+		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
+		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+		return $twig;
+	}
+
+	/**
+	 * Updates Twig environment options.
+	 *
+	 * @link https://twig.symfony.com/doc/2.x/api.html#environment-options
+	 *
+	 * \@param array $options An array of environment options.
+	 *
+	 * @return array
+	 */
+	function update_twig_environment_options( $options ) {
+	    // $options['autoescape'] = true;
+
+	    return $options;
+	}
 
 }
-
-new bootstrapTheme();
