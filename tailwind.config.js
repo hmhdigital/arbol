@@ -32,8 +32,7 @@ theme.settings.typography.fontFamilies.forEach(fam => {
 
 module.exports = {
 	content: [
-		'./**/*.php',
-		'./views/**/*.twig'
+		'./views/**/*.twig',
 	].concat(glob.sync('./*.php')),
 	// have to use glob sync because otherwise base folder becomes tw dependency and infinite loop because of index.asset.php
 	// glob returns array of actual files and this way build folder is definitively ignored
