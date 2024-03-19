@@ -1,13 +1,13 @@
-{% if primary_menu %}
-	<ul class="flex">
-	{% for item in primary_menu.items %}
+{% if header_menu %}
+	<ul class="flex gap-4">
+	{% for item in header_menu.items %}
 		<li class=" {{ item.classes | join(' ') }}">
 			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
 			{% if item.get_children %}
 				<ul class="p">
 				{% for child in item.get_children %}
 					<li class="">
-						<a class="nav-link" href="{{child.get_link}}">{{child.title}}</a>
+						<a class="nav-link" href="{{child.link}}">{{child.title}}</a>
 					</li>
 				{% endfor %}
 				</ul>
