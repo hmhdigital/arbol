@@ -18,8 +18,15 @@
 $composer_autoload = __DIR__ . '/vendor/autoload.php';
 if ( file_exists( $composer_autoload ) ) {
 	require_once $composer_autoload;
-	$timber = new Timber\Timber();
+	Timber\Timber::init();
 }
+
+/**
+ * Theme defaults and WordPress features.
+ */
+require_once get_template_directory() . '/inc/bootstrap.php';
+
+new bootstrapTheme();
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
@@ -30,7 +37,7 @@ if ( ! class_exists( 'Timber' ) ) {
 	add_action(
 		'admin_notices',
 		function() {
-			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+			echo '<div class="error"><p>Timber not activated. Is it configured properly?</p></div>';
 		}
 	);
 
@@ -46,12 +53,8 @@ if ( ! class_exists( 'Timber' ) ) {
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
-Timber::$dirname = array( 'views/', 'views/layouts', 'views/pages', 'views/partials', 'views/blocks', 'views/modules' );
+Timber::$dirname = [ 'views/', 'views/layouts', 'views/pages', 'views/partials', 'views/blocks' ];
 
- /**
- * Theme defaults and WordPress features.
- */
- require_once get_template_directory() . '/inc/bootstrap.php';
 
  /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
@@ -64,8 +67,6 @@ Timber::$dirname = array( 'views/', 'views/layouts', 'views/pages', 'views/parti
  * Enqueue scripts and styles.
  */
 function besu_assets() {
-	// Loads required CSS header only.
-	wp_enqueue_style( 'besu-style', get_stylesheet_uri() );
 
 	// Loads bundled theme CSS.
 	wp_enqueue_style( 'besu-css-styles', get_template_directory_uri() . '/build/index.css',
@@ -88,10 +89,6 @@ function besu_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'besu_assets' );
 
-/**
- * Disable Editor on certain pages.
- */
-require get_template_directory() . '/inc/disable-editor.php';
 
 /**
  * ACF Add-ons.
