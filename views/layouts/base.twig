@@ -11,13 +11,13 @@
 
 		<header class="p-4 h-16">
 			{% block header %}
-				<div class="flex">
+				<div class="flex justify-between">
 					{% include "partials/header.twig" %}
 				</div>
 			{% endblock %}
 		</header>
 
-		<main id="" role="main" class="h-full">
+		<main id="" role="main" class="h-full p-16">
 			{% if title %}<h1>{{title}}</h1>{% endif %}
 			<div class=" {{sidebar_class}}">
 				{% block content %}
@@ -31,7 +31,7 @@
 			{% endif %}
 		</main>
 
-		<footer class="">
+		<footer class="p-4 h-16">
 			{% block footer %}
 				<div class="">
 					{% include 'footer.twig' %}
