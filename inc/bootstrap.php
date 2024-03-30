@@ -3,9 +3,9 @@
  * Wordpress defaults and them features
  *
  * @package WordPress
- * @subpackage Bēsu
+ * @subpackage Árbol
  * @version 0.9.0
- * @since Bēsu 0.5.0
+ * @since Árbol 0.5.0
  */
 use Timber\Site;
 class bootstrapTheme extends Site {
@@ -111,9 +111,9 @@ class bootstrapTheme extends Site {
 	/** This is where you can register nav menus */
 	public function register_menus() {
 		register_nav_menus( array(
-			'header_nav' => esc_html__( 'Header Navigation', 'besu' ),
-			'mobile_nav' => esc_html__( 'Mobile Navigation', 'besu' ),
-			'footer_nav' => esc_html__( 'Footer Navigation', 'besu' )
+			'header_nav' => esc_html__( 'Header Navigation', 'arbol' ),
+			'mobile_nav' => esc_html__( 'Mobile Navigation', 'arbol' ),
+			'footer_nav' => esc_html__( 'Footer Navigation', 'arbol' )
 		) );
 	}
 

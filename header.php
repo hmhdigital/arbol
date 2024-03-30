@@ -9,7 +9,7 @@
  * @link https://codex.wordpress.org/Theme_Development#Basic_Templates
  *
  * @package  WordPress
- * @subpackage Bēsu
+ * @subpackage Árbol
  * @since    0.9.0
  */
 

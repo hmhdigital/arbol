@@ -6,9 +6,9 @@
  *
  * Methods for TimberHelper can be found in the /lib plugin sub-directory
  * @package WordPress
- * @subpackage Bēsu
+ * @subpackage Árbol
  * @version 0.9.0
- * @since Bēsu 0.5.0
+ * @since Árbol 0.5.0
  */
 
 global $wp_query;

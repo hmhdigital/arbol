@@ -1,10 +1,10 @@
 {
-	"name": "besu",
+	"name": "arbol",
 	"version": "0.9.0",
 	"description": "A WordPress starter theme for bespoke projects",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/hmhdigital/besu"
+		"url": "https://github.com/hmhdigital/arbol"
 	},
 	"author": "Rashad Hawkins",
 	"license": "MIT",
@@ -25,10 +25,10 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"scripts": {
-		"bundle": "dir-archiver --src . --dest ../besu.zip --exclude .DS_Store .editorconfig .eslintignore .eslintrc.js tailwind.config.js postcss.config.js prettier.config.js .git .gitattributes .github .gitignore README.md local.example.json local.json composer.json composer.lock node_modules src package-lock.json package.json phpcs.xml.dist",
+		"bundle": "dir-archiver --src . --dest ../arbol.zip --exclude .DS_Store .editorconfig .eslintignore .eslintrc.js tailwind.config.js postcss.config.js prettier.config.js .git .gitattributes .github .gitignore README.md local.example.json local.json composer.json composer.lock node_modules src package-lock.json package.json phpcs.xml.dist",
 		"compile": "wp-scripts start src/js/index.js ",
 		"build": "wp-scripts build src/js/index.js ",
 		"develop": "npm-run-all --parallel compile sync",
-		"sync": "browser-sync start --proxy 'besu.local' --browser 'google chrome' --files 'build/*', './**/*.php', './**/*.twig'"
+		"sync": "browser-sync start --proxy 'arbol.local' --browser 'google chrome' --files 'build/*', './**/*.php', './**/*.twig'"
 	}
 }

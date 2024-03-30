@@ -1,13 +1,13 @@
 <?php
 /**
- * Bēsu functions and definitions
+ * Árbol functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package WordPress
- * @subpackage Bēsu
+ * @subpackage Árbol
  * @version 0.9.0
- * @since Bēsu 0.5.0
+ * @since Árbol 0.5.0
  */
 
  /**
@@ -66,16 +66,16 @@ Timber::$dirname = [ 'views/', 'views/layouts', 'views/pages', 'views/partials',
  /**
  * Enqueue scripts and styles.
  */
-function besu_assets() {
+function arbol_assets() {
 
 	// Loads bundled theme CSS.
-	wp_enqueue_style( 'besu-css-styles', get_template_directory_uri() . '/build/index.css',
+	wp_enqueue_style( 'arbol-css-styles', get_template_directory_uri() . '/build/index.css',
 	array(),
 	(include get_template_directory() . '/build/index.asset.php')['version']
 	);
 
 	// Loads bundled theme JS.
-	wp_enqueue_script('besu-js-scripts', get_template_directory_uri() . '/build/index.js',
+	wp_enqueue_script('arbol-js-scripts', get_template_directory_uri() . '/build/index.js',
 	(include get_template_directory() . '/build/index.asset.php')['dependencies'],
     (include get_template_directory() . '/build/index.asset.php')['version'],
     true
@@ -87,7 +87,7 @@ function besu_assets() {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'besu_assets' );
+add_action( 'wp_enqueue_scripts', 'arbol_assets' );
 
 
 /**

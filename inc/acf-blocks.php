@@ -2,7 +2,7 @@
 /**
  * ACF Customizations
  *
- * @package Besu
+ * @package Arbol
  */
 
 /**
@@ -11,7 +11,7 @@
  *
  */
 
- function Besu_register_blocks() {
+ function Arbol_register_blocks() {
 
 	if( ! function_exists( 'acf_register_block_type' ) )
 		return;
@@ -26,7 +26,7 @@
 			'keywords'        => array( 'example' ),
 		) );
  }
- add_action( 'acf/init', 'besu_register_blocks' );
+ add_action( 'acf/init', 'Arbol_register_blocks' );
 
  /**
  *  This is the callback that displays the block.
