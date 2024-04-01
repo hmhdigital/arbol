@@ -1,6 +1,6 @@
 <?php
 /**
- * Wordpress defaults and them features
+ * Wordpress defaults and theme features
  *
  * @package WordPress
  * @subpackage Árbol
